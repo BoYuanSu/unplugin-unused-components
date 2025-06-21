@@ -7,7 +7,7 @@ import outputUnusedFiles from './core/outputUnusedFiles';
 const Unused: UnpluginInstance<Options | undefined, false> = createUnplugin((options) => {
 
 
-  const { include, exclude, logLevel, absoluteRoot: rootWithCWD } = resolveOptions(options);
+  const { include, exclude, absoluteRoot: rootWithCWD } = resolveOptions(options);
 
   let root: string = rootWithCWD;
 
