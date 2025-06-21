@@ -2,12 +2,13 @@ import { defineConfig } from 'tsdown';
 
 export default defineConfig([
   {
+    clean: true,
     entry: ['./src/*.ts'],
-    platform: 'neutral',
+    format: ['esm', 'cjs'],
     dts: {
       isolatedDeclarations: true,
     },
-    outDir: 'dist/esm',
+    outDir: 'dist',
     external: [
       'node:path',
       'node:fs',
