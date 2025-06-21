@@ -20,4 +20,3 @@ import { Unused } from './index';
  */
 const esbuild = Unused.esbuild as typeof Unused.esbuild;
 export default esbuild;
-export { esbuild as 'module.exports' };

@@ -21,4 +21,3 @@ import { Unused } from './index';
  */
 const rollup = Unused.rollup as typeof Unused.rollup;
 export default rollup;
-export { rollup as 'module.exports' };

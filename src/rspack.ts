@@ -19,4 +19,3 @@ import { Unused } from './index';
  */
 const rspack = Unused.rspack as typeof Unused.rspack;
 export default rspack;
-export { rspack as 'module.exports' };

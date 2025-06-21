@@ -19,4 +19,3 @@ import { Unused } from './index';
  */
 const webpack = Unused.webpack as typeof Unused.webpack;
 export default webpack;
-export { webpack as 'module.exports' };

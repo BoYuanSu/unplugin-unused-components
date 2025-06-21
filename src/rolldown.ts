@@ -21,4 +21,3 @@ import { Unused } from './index';
  */
 const rolldown = Unused.rolldown as typeof Unused.rolldown;
 export default rolldown;
-export { rolldown as 'module.exports' };
