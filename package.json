@@ -60,6 +60,16 @@
       "require": "./dist/legacy/webpack.cjs"
     }
   },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "./dist/*"
+      ],
+      "webpack4": [
+        "./dist/legacy/*"
+      ]
+    }
+  },
   "scripts": {
     "build": "tsdown",
     "dev": "tsdown --watch",
