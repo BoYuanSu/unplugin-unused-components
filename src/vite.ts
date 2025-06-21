@@ -21,4 +21,3 @@ import { Unused } from './index';
  */
 const vite = Unused.vite as typeof Unused.vite;
 export default vite;
-export { vite as 'module.exports' };
