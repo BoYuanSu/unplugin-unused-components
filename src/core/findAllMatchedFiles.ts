@@ -1,7 +1,7 @@
+import escapeStringRegexp from 'escape-string-regexp';
 import fs from 'node:fs';
 import path from 'node:path';
 import { FilterPattern } from 'unplugin';
-import escapeStringRegexp from 'escape-string-regexp';
 
 const isMatch = (fileName: string, pattern: FilterPattern): boolean => {
   if (!pattern) return true;
