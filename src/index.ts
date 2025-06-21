@@ -1,16 +1,15 @@
 import { createUnplugin, UnpluginInstance } from "unplugin";
-import type { Options } from "./core/options";
 import findAllMatchedFiles from "./core/findAllMatchedFiles";
+import { resolveOptions, type Options } from "./core/options";
+import outputUnusedFiles from "./core/outputUnusedFiles";
 
 
 const Unused: UnpluginInstance<Options | undefined, false> = createUnplugin((options) => {
-  const { include, exclude, logLevel } = {
-    include: [/\.([cm]?[jt]sx|vue)$/],
-    exclude: [/node_modules/],
-    logLevel: 'warning',
-    ...options,
-  }
-  let root: string = process.cwd()
+
+  
+  const { include, exclude, logLevel, absoluteRoot: rootWithCWD } = resolveOptions(options);
+
+  let root: string = rootWithCWD;
 
   let components: Set<string>;
   return {
@@ -36,21 +35,20 @@ const Unused: UnpluginInstance<Options | undefined, false> = createUnplugin((opt
     buildEnd() {
       if (components.size === 0) return;
       const unusedComponents = Array.from(components);
-      console.log(`Found ${unusedComponents.length} unused components:`);
-      unusedComponents.forEach((component) => {
-        console.log(`- ${component}`);
-      });
-      if (logLevel === 'error') {
-        throw new Error(`Found ${unusedComponents.length} unused components.`);
-      }
+      outputUnusedFiles(unusedComponents);
     },
     vite: {
       apply: 'build',
-      configResolved(config: any) {
-        root ||= config.root;
+      configResolved(config: unknown) {
+        if (typeof config === 'object' && config !== null && 'root' in config && typeof config.root === 'string') {
+          root ||= config.root;
+        }
       },
     }
   }
 })
 
-export { Unused }
+export { Unused };
+
+  export type { Options };
+
