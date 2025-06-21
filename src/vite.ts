@@ -12,10 +12,10 @@ import { Unused } from './index';
  * @example
  * ```ts
  * // vite.config.ts
- * import Unused from 'unplugin-unused/vite'
+ * import UnusedComponents from 'unplugin-unused-components/vite'
  *
  * export default defineConfig({
- *   plugins: [Unused()],
+ *   plugins: [UnusedComponents()],
  * })
  * ```
  */

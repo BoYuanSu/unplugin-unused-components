@@ -13,7 +13,7 @@ import { Unused } from './index';
  * ```ts
  * // rspack.config.js
  * module.exports = {
- *  plugins: [require('unplugin-unused/rspack')()],
+ *  plugins: [require('unplugin-unused-components/rspack')()],
  * }
  * ```
  */

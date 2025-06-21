@@ -12,9 +12,11 @@ import { Unused } from './index';
  * @example
  * ```ts
  * import { build } from 'esbuild'
+ * import UnusedComponents from 'unplugin-unused-components/esbuild'
+
  *
  * build({
- *   plugins: [require('unplugin-unused/esbuild')()],
+ *   plugins: [UnusedComponents()],
  * })
  * ```
  */

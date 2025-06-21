@@ -12,10 +12,10 @@ import { Unused } from './index';
  * @example
  * ```ts
  * // rollup.config.js
- * import Unused from 'unplugin-unused/rollup'
+ * import UnusedComponents from 'unplugin-unused-components/rollup'
  *
  * export default {
- *   plugins: [Unused()],
+ *   plugins: [UnusedComponents()],
  * }
  * ```
  */

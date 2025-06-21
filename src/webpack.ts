@@ -13,7 +13,7 @@ import { Unused } from './index';
  * ```ts
  * // webpack.config.js
  * module.exports = {
- *  plugins: [require('unplugin-unused/webpack')()],
+ *  plugins: [require('unplugin-unused-components/webpack')()],
  * }
  * ```
  */
