@@ -4,7 +4,7 @@
  * @module
  */
 
-import { Unused } from './index'
+import { Unused } from './index';
 
 /**
  * Webpack plugin
@@ -17,6 +17,6 @@ import { Unused } from './index'
  * }
  * ```
  */
-const webpack = Unused.webpack as typeof Unused.webpack
-export default webpack
-export { webpack as 'module.exports' }
+const webpack = Unused.webpack as typeof Unused.webpack;
+export default webpack;
+export { webpack as 'module.exports' };

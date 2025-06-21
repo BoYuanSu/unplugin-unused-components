@@ -4,7 +4,7 @@
  * @module
  */
 
-import { Unused } from './index'
+import { Unused } from './index';
 
 /**
  * Esbuild plugin
@@ -18,6 +18,6 @@ import { Unused } from './index'
  * })
  * ```
  */
-const esbuild = Unused.esbuild as typeof Unused.esbuild
-export default esbuild
-export { esbuild as 'module.exports' }
+const esbuild = Unused.esbuild as typeof Unused.esbuild;
+export default esbuild;
+export { esbuild as 'module.exports' };

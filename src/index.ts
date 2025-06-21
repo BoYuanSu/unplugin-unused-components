@@ -1,12 +1,12 @@
-import { createUnplugin, UnpluginInstance } from "unplugin";
-import findAllMatchedFiles from "./core/findAllMatchedFiles";
-import { resolveOptions, type Options } from "./core/options";
-import outputUnusedFiles from "./core/outputUnusedFiles";
+import { createUnplugin, UnpluginInstance } from 'unplugin';
+import findAllMatchedFiles from './core/findAllMatchedFiles';
+import { resolveOptions, type Options } from './core/options';
+import outputUnusedFiles from './core/outputUnusedFiles';
 
 
 const Unused: UnpluginInstance<Options | undefined, false> = createUnplugin((options) => {
 
-  
+
   const { include, exclude, logLevel, absoluteRoot: rootWithCWD } = resolveOptions(options);
 
   let root: string = rootWithCWD;
@@ -45,10 +45,10 @@ const Unused: UnpluginInstance<Options | undefined, false> = createUnplugin((opt
         }
       },
     }
-  }
-})
+  };
+});
 
 export { Unused };
 
-  export type { Options };
+export type { Options };
 

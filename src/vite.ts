@@ -4,7 +4,7 @@
  * @module
  */
 
-import { Unused } from './index'
+import { Unused } from './index';
 
 /**
  * Vite plugin
@@ -19,6 +19,6 @@ import { Unused } from './index'
  * })
  * ```
  */
-const vite = Unused.vite as typeof Unused.vite
-export default vite
-export { vite as 'module.exports' }
+const vite = Unused.vite as typeof Unused.vite;
+export default vite;
+export { vite as 'module.exports' };

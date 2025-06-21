@@ -17,7 +17,7 @@ const isMatch = (fileName: string, pattern: FilterPattern): boolean => {
   }
   return false;
 
-}
+};
 
 const findAllMatchedFiles = (rootDir: string, include?: FilterPattern, exclude?: FilterPattern) => {
   const files: string[] = [];

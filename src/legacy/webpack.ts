@@ -77,7 +77,7 @@ class UnusedComponentsPlugin {
 
     compiler.hooks.normalModuleFactory.tap(PLUGIN_NAME, (factory) => {
       factory.hooks.beforeResolve.tap(PLUGIN_NAME, (data) => {
-        if (!data) return; 
+        if (!data) return;
         if (data.context.includes('node_modules') || data.request.includes('node_modules')) return;
 
         const alias = compiler.options.resolve?.alias ?? {};

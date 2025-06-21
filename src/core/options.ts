@@ -1,5 +1,5 @@
-import path from "node:path";
-import type { FilterPattern } from "unplugin";
+import path from 'node:path';
+import type { FilterPattern } from 'unplugin';
 
 interface Options {
   absoluteRoot?: string;
@@ -12,11 +12,10 @@ type OptionsWithDefaults = Required<Options>;
 
 const isValidRoot = (root: string): root is string => {
   if (path.isAbsolute(root)) {
-
     return true;
   }
-  return false
-}
+  return false;
+};
 
 const resolveOptions = (options?: Options): OptionsWithDefaults => {
   const unValidRoot = options?.absoluteRoot ?? '';
@@ -27,8 +26,8 @@ const resolveOptions = (options?: Options): OptionsWithDefaults => {
     include: options?.include || [/\.([cm]?[jt]sx|vue)$/],
     exclude: options?.exclude || [/node_modules/],
     logLevel: options?.logLevel || 'warning',
-  }
-}
+  };
+};
 
 export { resolveOptions };
 export type { Options, OptionsWithDefaults };

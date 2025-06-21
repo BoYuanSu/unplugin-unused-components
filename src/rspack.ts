@@ -4,7 +4,7 @@
  * @module
  */
 
-import { Unused } from './index'
+import { Unused } from './index';
 
 /**
  * Rspack plugin
@@ -17,6 +17,6 @@ import { Unused } from './index'
  * }
  * ```
  */
-const rspack = Unused.rspack as typeof Unused.rspack
-export default rspack
-export { rspack as 'module.exports' }
+const rspack = Unused.rspack as typeof Unused.rspack;
+export default rspack;
+export { rspack as 'module.exports' };

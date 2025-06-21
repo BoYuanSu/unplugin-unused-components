@@ -4,7 +4,7 @@
  * @module
  */
 
-import { Unused } from './index'
+import { Unused } from './index';
 
 /**
  * Rollup plugin
@@ -19,6 +19,6 @@ import { Unused } from './index'
  * }
  * ```
  */
-const rollup = Unused.rollup as typeof Unused.rollup
-export default rollup
-export { rollup as 'module.exports' }
+const rollup = Unused.rollup as typeof Unused.rollup;
+export default rollup;
+export { rollup as 'module.exports' };
