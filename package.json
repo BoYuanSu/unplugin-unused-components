@@ -1,18 +1,64 @@
 {
-  "name": "tsdown-starter",
+  "name": "unplugin-unused-components",
   "version": "0.0.0",
-  "private": true,
-  "description": "A simple example library built by tsdown",
+  "description": "Unplugin to detect unused components in your project",
   "type": "module",
+  "keywords": [
+    "unplugin",
+    "rollup",
+    "vite",
+    "esbuild",
+    "webpack",
+    "webpack4"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/BoYuanSu/unplugin-unused-components#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BoYuanSu/unplugin-unused-components.git"
+  },
+  "author": "BoYuanSu <mayday15221@gmail.com>",
   "files": [
     "dist"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "./dist/index.js",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
-    ".": "./dist/index.js",
-    "./package.json": "./package.json"
+    ".": {
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./vite": {
+      "import": "./dist/vite.js",
+      "require": "./dist/vite.cjs"
+    },
+    "./webpack": {
+      "import": "./dist/webpack.js",
+      "require": "./dist/webpack.cjs"
+    },
+    "./rspack": {
+      "import": "./dist/rspack.js",
+      "require": "./dist/rspack.cjs"
+    },
+    "./rollup": {
+      "import": "./dist/rollup.js",
+      "require": "./dist/rollup.cjs"
+    },
+    "./rolldown": {
+      "import": "./dist/rolldown.js",
+      "require": "./dist/rolldown.cjs"
+    },
+    "./esbuild": {
+      "import": "./dist/esbuild.js",
+      "require": "./dist/esbuild.cjs"
+    },
+    "./webpack4": {
+      "require": "./dist/legacy/webpack.cjs"
+    }
   },
   "scripts": {
     "build": "tsdown",
@@ -35,5 +81,8 @@
   "dependencies": {
     "escape-string-regexp": "^5.0.0",
     "unplugin": "^2.3.5"
+  },
+  "engines": {
+    "node": ">=20"
   }
 }
