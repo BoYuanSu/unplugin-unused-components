@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      escape-string-regexp:
-        specifier: ^5.0.0
-        version: 5.0.0
       unplugin:
         specifier: ^2.3.5
         version: 2.3.5
@@ -24,6 +21,9 @@ importers:
       '@types/webpack':
         specifier: ^4.41.40
         version: 4.41.40
+      escape-string-regexp:
+        specifier: ^4.0.0
+        version: 4.0.0
       eslint:
         specifier: ^9.29.0
         version: 9.29.0(jiti@2.4.2)
@@ -1104,10 +1104,6 @@ packages:
   escape-string-regexp@4.0.0:
     resolution: {integrity: sha512-TtpcNJ3XAzx3Gq8sWRzJaVajRs0uVxA2YAkdb1jm2YkPz4G6egUFAyA3n5vtEIZefPk5Wa4UXbKuS5fKkJWdgA==}
     engines: {node: '>=10'}
-
-  escape-string-regexp@5.0.0:
-    resolution: {integrity: sha512-/veY75JbMK4j1yjvuUxuVsiS/hr/4iHs9FTT6cgTexxdE0Ly/glccBAkloH/DofkjRbZU3bnoj38mOmhkZ0lHw==}
-    engines: {node: '>=12'}
 
   eslint-scope@4.0.3:
     resolution: {integrity: sha512-p7VutNr1O/QrxysMo3E45FjYDTeXBy0iTltPFNSqKAIfjDSXC+4dj+qfyuD8bfAXrW/y6lW3O76VaYNPKfpKrg==}
@@ -3571,8 +3567,6 @@ snapshots:
       '@esbuild/win32-x64': 0.25.5
 
   escape-string-regexp@4.0.0: {}
-
-  escape-string-regexp@5.0.0: {}
 
   eslint-scope@4.0.3:
     dependencies:
