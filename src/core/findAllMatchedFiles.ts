@@ -21,6 +21,10 @@ const isMatch = (fileName: string, pattern: FilterPattern): boolean => {
 
 const findAllMatchedFiles = (rootDir: string, include?: FilterPattern, exclude?: FilterPattern) => {
   const files: string[] = [];
+  if (!fs.existsSync(rootDir) || fs.statSync(rootDir).isFile()) {
+    console.warn(`Root directory "${rootDir}" does not exist or is a file.`);
+    return files;
+  } // Return empty if rootDir does not exist
   const dirs = fs.readdirSync(rootDir, { withFileTypes: true });
 
   const pool = dirs.map((dir) => ({ dest: dir, parentPath: rootDir }));
