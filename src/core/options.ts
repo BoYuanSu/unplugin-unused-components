@@ -31,4 +31,3 @@ const resolveOptions = (options?: Options): OptionsWithDefaults => {
 
 export { resolveOptions };
 export type { Options, OptionsWithDefaults };
-

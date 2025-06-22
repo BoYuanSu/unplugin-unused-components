@@ -3,10 +3,7 @@ import findAllMatchedFiles from './core/findAllMatchedFiles';
 import { resolveOptions, type Options } from './core/options';
 import outputUnusedFiles from './core/outputUnusedFiles';
 
-
 const Unused: UnpluginInstance<Options | undefined, false> = createUnplugin((options) => {
-
-
   const { include, exclude, absoluteRoot: rootWithCWD } = resolveOptions(options);
 
   let root: string = rootWithCWD;
@@ -20,7 +17,7 @@ const Unused: UnpluginInstance<Options | undefined, false> = createUnplugin((opt
         id: {
           include: include || [],
           exclude: exclude || [],
-        }
+        },
       },
       handler(code, id): undefined {
         if (components?.has(id)) {
@@ -40,15 +37,20 @@ const Unused: UnpluginInstance<Options | undefined, false> = createUnplugin((opt
     vite: {
       apply: 'build',
       configResolved(config: unknown) {
-        if (typeof config === 'object' && config !== null && 'root' in config && typeof config.root === 'string') {
+        if (
+          typeof config === 'object'
+          && config !== null
+          && 'root' in config
+          && typeof config.root === 'string'
+        ) {
           root ||= config.root;
         }
       },
-    }
+    },
   };
-});
+},
+);
 
 export { Unused };
 
 export type { Options };
-

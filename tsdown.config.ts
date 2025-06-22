@@ -12,7 +12,7 @@ export default defineConfig([
     external: [
       'node:path',
       'node:fs',
-    ]
+    ],
   },
   {
     entry: ['./src/legacy/*.ts'],
@@ -28,6 +28,6 @@ export default defineConfig([
       'node:path': 'path',
       'node:fs': 'fs',
     },
-    shims: true
-  }
+    shims: true,
+  },
 ]);
