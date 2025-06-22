@@ -18,18 +18,19 @@ const findAllMatchedFiles = (rootDir: string, include?: FilterPattern, exclude?:
     if (!current) break;
     const { dest, parentPath } = current;
 
-    if (exclude && isMatched(dest.name, exclude)) {
+    const fullPath = path.join(parentPath, dest.name);
+    if (exclude && isMatched(fullPath, exclude)) {
       continue; // Skip excluded files
     }
 
     if (dest.isFile()) {
-      if (include && isMatched(dest.name, include)) {
-        files.push(path.join(parentPath, dest.name));
+      if (include && isMatched(fullPath, include)) {
+        files.push(fullPath);
       } else if (include === undefined) {
-        files.push(path.join(parentPath, dest.name));
+        files.push(fullPath);
       }
     } else if (dest.isDirectory()) {
-      const subDirs = fs.readdirSync(path.join(parentPath, dest.name), {
+      const subDirs = fs.readdirSync(fullPath, {
         withFileTypes: true,
       });
       pool.push(
