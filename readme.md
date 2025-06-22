@@ -1,6 +1,9 @@
 # unplugin-unused-components
 
-A Vite/Webpack/Rollup/Rolldown/RsPack plugin to detect and report unused Vue components in your project. This helps you keep your codebase clean and maintainable by identifying components that are not being used.
+> **Inspiration:**  
+> This project is inspired by [unplugin-unused](https://github.com/unplugin/unplugin-unused).
+
+A Vite/Webpack/Rollup/Rolldown/RsPack plugin to detect and report unused Vue/React components in your project. This helps you keep your codebase clean and maintainable by identifying components that are not being used.
 
 ## Supported Node.js Versions
 
