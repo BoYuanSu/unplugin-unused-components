@@ -1,23 +1,7 @@
-import escapeStringRegexp from 'escape-string-regexp';
 import fs from 'node:fs';
 import path from 'node:path';
 import { FilterPattern } from 'unplugin';
-
-const isMatch = (fileName: string, pattern: FilterPattern): boolean => {
-  if (!pattern) return true;
-  if (Array.isArray(pattern)) {
-    return pattern.some((p) => fileName.match(p));
-  }
-  if (pattern instanceof RegExp) {
-    return fileName.match(pattern) !== null;
-  }
-  if (typeof pattern === 'string') {
-    const escapedPattern = escapeStringRegexp(pattern);
-    return fileName.match(new RegExp(escapedPattern)) !== null;
-  }
-  return false;
-
-};
+import isMatched from './isMatched';
 
 const findAllMatchedFiles = (rootDir: string, include?: FilterPattern, exclude?: FilterPattern) => {
   const files: string[] = [];
@@ -34,12 +18,12 @@ const findAllMatchedFiles = (rootDir: string, include?: FilterPattern, exclude?:
     if (!current) break;
     const { dest, parentPath } = current;
 
-    if (exclude && isMatch(dest.name, exclude)) {
+    if (exclude && isMatched(dest.name, exclude)) {
       continue; // Skip excluded files
     }
 
     if (dest.isFile()) {
-      if (include && isMatch(dest.name, include)) {
+      if (include && isMatched(dest.name, include)) {
         files.push(path.join(parentPath, dest.name));
       } else if (include === undefined) {
         files.push(path.join(parentPath, dest.name));

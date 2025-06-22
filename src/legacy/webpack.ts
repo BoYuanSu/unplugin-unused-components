@@ -1,13 +1,12 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { type Options, type OptionsWithDefaults, resolveOptions } from '../core/options';
-
 import { type Compiler } from 'webpack';
+import { type Options, type OptionsWithDefaults, resolveOptions } from '../core/options';
 import findAllMatchedFiles from '../core/findAllMatchedFiles';
 import outputUnusedFiles from '../core/outputUnusedFiles';
+import isMatched from '../core/isMatched';
 
 const PLUGIN_NAME = 'UnusedComponentsPlugin';
-
 
 const resolveAlias = (request: string, alias: Record<string, string>): string => {
   if (!alias || typeof alias !== 'object') return request;
@@ -56,7 +55,6 @@ const resolveExistFilePath = (filePath: string, extensions: string[]): string | 
   return resolveIndexFile(filePath, extensions);
 };
 
-
 class UnusedComponentsPlugin {
   options: OptionsWithDefaults;
   store: Set<string> | null;
@@ -70,15 +68,16 @@ class UnusedComponentsPlugin {
       const allFiles = findAllMatchedFiles(
         this.options.absoluteRoot,
         this.options.include,
-        this.options.exclude);
+        this.options.exclude,
+      );
       this.store = new Set(allFiles);
     });
-
 
     compiler.hooks.normalModuleFactory.tap(PLUGIN_NAME, (factory) => {
       factory.hooks.beforeResolve.tap(PLUGIN_NAME, (data) => {
         if (!data) return;
-        if (data.context.includes('node_modules') || data.request.includes('node_modules')) return;
+        if (isMatched(data.request, this.options.exclude)) return;
+        if (isMatched(data.context, this.options.exclude)) return;
 
         const alias = compiler.options.resolve?.alias ?? {};
         const extensions = compiler.options.resolve?.extensions ?? [];
@@ -88,7 +87,7 @@ class UnusedComponentsPlugin {
         const absolutePath = resolveAbsolutePath(resolvedAlias, context);
 
         const existFilePath = resolveExistFilePath(absolutePath, extensions);
-        if (existFilePath) {
+        if (existFilePath && !isMatched(existFilePath, this.options.exclude)) {
           this.store?.delete(existFilePath);
         }
       });
