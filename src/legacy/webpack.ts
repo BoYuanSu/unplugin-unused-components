@@ -58,7 +58,7 @@ const resolveExistFilePath = (filePath: string, extensions: string[]): string | 
 class UnusedComponentsPlugin {
   options: OptionsWithDefaults;
   store: Set<string> | null;
-  constructor(options: Options) {
+  constructor(options?: Options) {
     this.options = resolveOptions(options);
     this.store = null;
   }
