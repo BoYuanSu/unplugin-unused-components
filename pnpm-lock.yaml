@@ -30,12 +30,6 @@ importers:
       '@types/webpack':
         specifier: ^4.41.40
         version: 4.41.40
-      '@vitejs/plugin-vue2':
-        specifier: ^2.3.3
-        version: 2.3.3(vite@6.3.5(@types/node@24.0.3)(jiti@2.4.2))(vue@3.5.17(typescript@5.8.3))
-      '@vue/compiler-sfc':
-        specifier: ^3.5.17
-        version: 3.5.17
       babel-loader:
         specifier: ^8.4.1
         version: 8.4.1(@babel/core@7.27.4)(webpack@4.47.0)
@@ -66,18 +60,9 @@ importers:
       typescript-eslint:
         specifier: ^8.34.1
         version: 8.34.1(eslint@9.29.0(jiti@2.4.2))(typescript@5.8.3)
-      vite:
-        specifier: ^6.3.5
-        version: 6.3.5(@types/node@24.0.3)(jiti@2.4.2)
       vitest:
         specifier: ^3.2.4
         version: 3.2.4(@types/node@24.0.3)(jiti@2.4.2)
-      vue-loader:
-        specifier: '15'
-        version: 15.11.1(@vue/compiler-sfc@3.5.17)(css-loader@7.1.2(webpack@4.47.0))(lodash@4.17.21)(vue-template-compiler@2.7.16)(webpack@4.47.0)
-      vue-template-compiler:
-        specifier: ^2.7.16
-        version: 2.7.16
       webpack:
         specifier: ^4.47.0
         version: 4.47.0
@@ -96,6 +81,18 @@ importers:
       vue:
         specifier: ^3.5.17
         version: 3.5.17(typescript@5.8.3)
+
+  tests/webpack4-plugin-test:
+    devDependencies:
+      vue-loader:
+        specifier: ^15.11.1
+        version: 15.11.1(@vue/compiler-sfc@3.5.17)(css-loader@7.1.2(webpack@4.47.0))(lodash@4.17.21)(vue-template-compiler@2.7.16)(webpack@4.47.0)
+      vue-template-compiler:
+        specifier: ^2.7.16
+        version: 2.7.16
+      webpack:
+        specifier: ^4.47.0
+        version: 4.47.0
 
 packages:
 
@@ -1145,13 +1142,6 @@ packages:
   '@typescript-eslint/visitor-keys@8.34.1':
     resolution: {integrity: sha512-xoh5rJ+tgsRKoXnkBPFRLZ7rjKM0AfVbC68UZ/ECXoDbfggb9RbEySN359acY1vS3qZ0jVTVWzbtfapwm5ztxw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
-
-  '@vitejs/plugin-vue2@2.3.3':
-    resolution: {integrity: sha512-qexY6+bbwY8h0AZerzUuGywNTi0cLOkbiSbggr0R3WEW95iB2hblQFyv4MAkkc2vm4gZN1cO5kzT1Kp6xlVzZw==}
-    engines: {node: ^14.18.0 || >= 16.0.0}
-    peerDependencies:
-      vite: ^3.0.0 || ^4.0.0 || ^5.0.0 || ^6.0.0
-      vue: ^2.7.0-0
 
   '@vitejs/plugin-vue@5.2.4':
     resolution: {integrity: sha512-7Yx/SXSOcQq5HiiV3orevHUFn+pmMB4cgbEkDYgnkUWb0WfeQ/wa2yFv6D5ICiCQOVpjA7vYDXrC7AGO8yjDHA==}
@@ -4691,11 +4681,6 @@ snapshots:
     dependencies:
       '@typescript-eslint/types': 8.34.1
       eslint-visitor-keys: 4.2.1
-
-  '@vitejs/plugin-vue2@2.3.3(vite@6.3.5(@types/node@24.0.3)(jiti@2.4.2))(vue@3.5.17(typescript@5.8.3))':
-    dependencies:
-      vite: 6.3.5(@types/node@24.0.3)(jiti@2.4.2)
-      vue: 3.5.17(typescript@5.8.3)
 
   '@vitejs/plugin-vue@5.2.4(vite@6.3.5(@types/node@24.0.3)(jiti@2.4.2))(vue@3.5.17(typescript@5.8.3))':
     dependencies:
