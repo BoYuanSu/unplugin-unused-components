@@ -22,7 +22,9 @@ describe('esbuild', () => {
     await build({
       entryPoints: [path.resolve(dirname, '../fixtures/index.js')],
       plugins: [
-        Unused.esbuild(),
+        Unused.esbuild({
+          absoluteRoot: path.resolve(dirname, '../fixtures'),
+        }),
         vue(),
       ],
       bundle: true,
@@ -30,7 +32,7 @@ describe('esbuild', () => {
         __VUE_OPTIONS_API__: 'true',
         __VUE_PROD_DEVTOOLS__: 'false',
       },
-      outdir: path.resolve(dirname, '../fixtures/dist'),
+      outdir: path.resolve(dirname, './dist'),
       external: ['vue'],
     });
     // 驗證 console.log 是否有被呼叫
