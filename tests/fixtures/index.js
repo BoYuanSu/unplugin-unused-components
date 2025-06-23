@@ -1,5 +1,5 @@
 import TestUsed from './TestUsed.vue';
-import TestUnusedReact from './TestUnusedReact';
+import TestUnusedReact from './TestUsedReact';
 
 export const createVueApp = () => {
   return TestUsed;

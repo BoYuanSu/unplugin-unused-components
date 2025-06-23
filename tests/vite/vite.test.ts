@@ -2,7 +2,7 @@ import { describe, it, vi, beforeEach, afterEach, expect } from 'vitest';
 import { Unused } from '../../src/index';
 import { build } from 'vite';
 import path from 'node:path';
-import vue from '@vitejs/plugin-vue';
+import vue from '@vitejs/plugin-vue2';
 
 describe('vite', () => {
   let consoleSpy: ReturnType<typeof vi.spyOn>;
@@ -26,6 +26,9 @@ describe('vite', () => {
           name: 'test',
         },
         rollupOptions: {
+          output: {
+            dir: path.resolve(dirname, '../fixtures/dist/vite'),
+          },
           external: ['vue'],
         },
       },
