@@ -108,5 +108,9 @@
   },
   "engines": {
     "node": ">=10"
-  }
+  },
+  "private": true,
+  "workspaces": [
+    "tests/*-plugin-test/*"
+  ]
 }
