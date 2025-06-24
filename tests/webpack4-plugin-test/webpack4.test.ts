@@ -34,7 +34,10 @@ describe('webpack4', () => {
         extensions: ['.js', '.vue', '.jsx'],
       },
       plugins: [
-        new LegacyPlugin(),
+        new LegacyPlugin({
+          absoluteRoot: path.resolve(dirname, '../fixtures'),
+
+        }),
         new VueLoaderPlugin(),
       ],
       module: {

@@ -2,7 +2,7 @@ import { describe, it, vi, beforeEach, afterEach, expect } from 'vitest';
 import { Unused } from '../../src/index';
 import { build } from 'vite';
 import path from 'node:path';
-import vue from '@vitejs/plugin-vue2';
+import vue from '@vitejs/plugin-vue';
 
 describe('vite', () => {
   let consoleSpy: ReturnType<typeof vi.spyOn>;
@@ -32,7 +32,9 @@ describe('vite', () => {
           external: ['vue'],
         },
       },
-      plugins: [Unused.vite(), vue()],
+      plugins: [Unused.vite({
+        absoluteRoot: path.resolve(dirname, '../fixtures'),
+      }), vue()],
     });
     // 驗證 console.log 是否有被呼叫
     expect(consoleSpy).toBeCalledWith('Found 2 unused components:');
