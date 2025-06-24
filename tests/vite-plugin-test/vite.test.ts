@@ -27,7 +27,7 @@ describe('vite', () => {
         },
         rollupOptions: {
           output: {
-            dir: path.resolve(dirname, '../fixtures/dist/vite'),
+            dir: path.resolve(dirname, './dist'),
           },
           external: ['vue'],
         },

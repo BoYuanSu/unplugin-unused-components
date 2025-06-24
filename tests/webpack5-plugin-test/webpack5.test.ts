@@ -24,7 +24,7 @@ describe('webpack5', () => {
       mode: 'production',
       entry: path.resolve(dirname, '../fixtures/index.js'),
       output: {
-        path: path.resolve(dirname, '../fixtures/dist/webpack5'),
+        path: path.resolve(dirname, './dist'),
         filename: 'index.js',
         library: 'test',
         libraryTarget: 'commonjs',

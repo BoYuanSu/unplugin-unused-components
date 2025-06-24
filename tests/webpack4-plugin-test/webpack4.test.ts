@@ -22,7 +22,7 @@ describe('webpack4', () => {
     const compiler = webpack({
       entry: path.resolve(dirname, '../fixtures/index.js'),
       output: {
-        path: path.resolve(dirname, '../fixtures/dist/webpack'),
+        path: path.resolve(dirname, './dist'),
         filename: 'index.js',
         library: 'test',
         libraryTarget: 'commonjs',
