@@ -75,7 +75,7 @@
     "dev": "tsdown --watch",
     "type-chceck": "tsc --noEmit",
     "lint": "eslint --ext .ts,.js .",
-    "test": "pnpm -r run test"
+    "test": "pnpm -r --no-bail run test"
   },
   "devDependencies": {
     "@eslint/js": "^9.29.0",
