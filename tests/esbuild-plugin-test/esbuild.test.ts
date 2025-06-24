@@ -2,7 +2,7 @@ import { build } from 'esbuild';
 import { describe, it, vi, beforeEach, afterEach, expect } from 'vitest';
 import { Unused } from '../../src/index';
 import path from 'node:path';
-import vue from 'esbuild-plugin-vue';
+import vue from 'unplugin-vue/esbuild';
 
 describe('esbuild', () => {
   let consoleSpy: ReturnType<typeof vi.spyOn>;

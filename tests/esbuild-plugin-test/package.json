@@ -11,6 +11,6 @@
   "description": "",
   "devDependencies": {
     "esbuild": "^0.25.5",
-    "esbuild-plugin-vue": "^0.2.4"
+    "unplugin-vue": "^6.2.0"
   }
 }
